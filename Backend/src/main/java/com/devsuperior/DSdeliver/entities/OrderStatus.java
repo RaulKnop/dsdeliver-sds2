@@ -1,4 +1,4 @@
-package com.devsuperior.DSdeliver.entites;
+package com.devsuperior.DSdeliver.entities;
 
 public enum OrderStatus {
 

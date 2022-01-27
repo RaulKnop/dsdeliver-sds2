@@ -1,4 +1,4 @@
-package com.devsuperior.DSdeliver.entites;
+package com.devsuperior.DSdeliver.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -10,13 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_product")
+@Table(name ="tb_order")
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,29 +23,26 @@ public class Order implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String address;
-	private Double Latitude;
-	private Double Longitude;
+	private Double latitude;
+	private Double longitude;
 	private Instant moment;
-	private OrderStatus status;
+	private OrderStatus Status;
 	
 	@ManyToMany
-	@JoinTable(name = "tb_order_product", 
-	 joinColumns = @JoinColumn(name = "order_id"),
-	 inverseJoinColumns = @JoinColumn(name = "product_id")
-	 )
-    private Set<Product> Products = new HashSet<>();
-    
-    public Order() {
-    	}
+	@
+	private Set<Product> products = new HashSet<>();
+	
+	public Order( ) {
+		}
 
 	public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
 		super();
 		this.id = id;
 		this.address = address;
-		Latitude = latitude;
-		Longitude = longitude;
+		this.latitude = latitude;
+		this.longitude = longitude;
 		this.moment = moment;
-		this.status = status;
+		Status = status;
 	}
 
 	public Long getId() {
@@ -67,19 +62,19 @@ public class Order implements Serializable {
 	}
 
 	public Double getLatitude() {
-		return Latitude;
+		return latitude;
 	}
 
 	public void setLatitude(Double latitude) {
-		Latitude = latitude;
+		this.latitude = latitude;
 	}
 
 	public Double getLongitude() {
-		return Longitude;
+		return longitude;
 	}
 
 	public void setLongitude(Double longitude) {
-		Longitude = longitude;
+		this.longitude = longitude;
 	}
 
 	public Instant getMoment() {
@@ -91,15 +86,15 @@ public class Order implements Serializable {
 	}
 
 	public OrderStatus getStatus() {
-		return status;
+		return Status;
 	}
 
 	public void setStatus(OrderStatus status) {
-		this.status = status;
+		Status = status;
 	}
 
 	public Set<Product> getProducts() {
-		return Products;
+		return products;
 	}
 
 	@Override
@@ -118,4 +113,5 @@ public class Order implements Serializable {
 		Order other = (Order) obj;
 		return Objects.equals(id, other.id);
 	}
+	
 }

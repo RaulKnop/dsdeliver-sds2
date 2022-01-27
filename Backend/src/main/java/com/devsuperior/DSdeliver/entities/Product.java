@@ -1,4 +1,4 @@
-package com.devsuperior.DSdeliver.entites;
+package com.devsuperior.DSdeliver.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -6,12 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Table;	
 
 @Entity
-@Table(name = "tb_product")
+@Table(name ="tb_product")
 public class Product implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -20,18 +20,18 @@ public class Product implements Serializable {
 	private String name;
 	private Double price;
 	private String description;
-	private String imageUri;
+	private String Uri;
 	
 	public Product () {
-	}
+		}
 
-	public Product(Long id, String name, Double price, String description, String imageUri) {
+	public Product(Long id, String name, Double price, String description, String uri) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.description = description;
-		this.imageUri = imageUri;
+		Uri = uri;
 	}
 
 	public Long getId() {
@@ -66,12 +66,12 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 
-	public String getImageUri() {
-		return imageUri;
+	public String getUri() {
+		return Uri;
 	}
 
-	public void setImageUri(String imageUri) {
-		this.imageUri = imageUri;
+	public void setUri(String uri) {
+		Uri = uri;
 	}
 
 	@Override
@@ -90,6 +90,5 @@ public class Product implements Serializable {
 		Product other = (Product) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 	
 }
