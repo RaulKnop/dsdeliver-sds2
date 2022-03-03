@@ -1,5 +1,4 @@
 import axios from "axios";
-import orders from "./orders";
 import { OrderPayload } from "./orders/types";
 
 const API_URL = 'http://locahost:8080'

@@ -5,8 +5,7 @@ type Props ={
   totalPrice: number;
   onSubmit: () =>void;
 }
-
-function OrderSummary({ amount, totalPrice }: Props) {
+function OrderSummary({ amount, totalPrice, onSubmit }: Props): JSX.Element {
   return(
    <div className="order-summary-container">
       <div className="order-summary-content">
